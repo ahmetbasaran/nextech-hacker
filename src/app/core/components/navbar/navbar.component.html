@@ -1,0 +1,10 @@
+<nav>
+  <img class="logo" src='../../../../assets/bcs_logo.png'>
+  <input type="checkbox" id="nav" class="hidden"/>
+  <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
+  <div class="nav-container">
+    <ul>
+      <li *ngFor="let menuItem of menuItems"><a [routerLink]="[menuItem.path]">{{menuItem.title}}</a></li>
+    </ul>
+  </div>
+</nav>
