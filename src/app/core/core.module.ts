@@ -6,6 +6,7 @@ import { MenuRoutingService } from './services/menu-routing.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HackerNewsService } from './services/hackernews.service';
 
 @NgModule({
     imports: [
@@ -21,7 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
         NavbarComponent
     ],
     providers: [
-        MenuRoutingService
+        MenuRoutingService,
+        HackerNewsService
     ]
 })
 export class CoreModule { }

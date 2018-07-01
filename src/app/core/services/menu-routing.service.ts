@@ -10,8 +10,6 @@ declare interface MenuRoutes {
 
 const menuRoutes: MenuRoutes[] = [
     { path: '#about', title: 'About'},
-    { path: '#howitworks', title: 'How It Works'},
-    { path: '#getintouch', title: 'Get In Touch'}
 ];
 
 @Injectable()

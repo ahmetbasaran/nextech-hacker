@@ -1,13 +1,29 @@
-<section class="module parallax parallax-1">
-    <div class="container">
-      
-          <div class="overlaytext">
-              <p style="text-align: center;">
-                  </p><div style="letter-spacing: 9px;">On Time</div><b> Every Time</b>
-                 
-              <p></p>
+<div *ngIf="!isComplete">
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="columns is-multiline">
+  <div class="column is-one-quarter-desktop" *ngFor="let hackerPost of hackerPosts">
+    <a href="{{hackerPost.url}}">
+      <div class="card card-shadow">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-12">{{hackerPost.title}}</p>
+              <p class="subtitle is-12">Author: {{hackerPost.by}}</p>
+              <p class="subtitle is-12">Score: {{hackerPost.score}}</p>
+            </div>
           </div>
-      
-    </div>
-   
-  </section>
+          <div class="content">
+            <br>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

@@ -9,7 +9,7 @@ const routes: Routes = [
         path: '',
         children: [
             {
-                path: '', loadChildren: 'app/main/main.module#MainModule'
+                path: '', loadChildren: './main/main.module#MainModule'
             }
         ]
     },
