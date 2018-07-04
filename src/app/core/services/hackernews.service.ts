@@ -8,28 +8,17 @@ import { map, mergeMap, concatMap } from 'rxjs/operators';
 @Injectable()
 export class HackerNewsService {
     constructor(private http: HttpClient) { }
-    hnBaseApiUrl = 'https://hacker-news.firebaseio.com/v0';
-    hnTopStoriesUrl = 'https://hacker-news.firebaseio.com/v0/topstories.json';
+
+    hnTopStoriesUrl = 'https://hacker-news.firebaseio.com/v0/beststories.json';
     hnStoryInfoUrl = 'https://hacker-news.firebaseio.com/v0/item/';
 
-
+    // Left this as Observable<any> because we're really just returning an array of strings.
     getTopStories(): Observable<any> {
         return this.http.get(this.hnTopStoriesUrl);
     }
 
-    getStoryInfo(id: string): Observable<any> {
-        return this.http.get(this.hnStoryInfoUrl + `${id}` + '.json');
-    }
-
-    getTopStoriesInfo(): Observable<any> {
-        return this.http.get(this.hnBaseApiUrl + '/topstories.json')
-            .pipe(
-                map((res: any) => res),
-                concatMap((story: any) => {
-                    console.log(story);
-                    return this.http.get(this.hnBaseApiUrl + `/item/${story[0]}` + '.json')
-                        .pipe(
-                            map((res: any) => res));
-                }));
+    // Returns our list of story information based on the ID passed in. Of type HackerNews in our Models folder.
+    getStoryInfo(id: string): Observable<HackerNews> {
+        return this.http.get<HackerNews>(this.hnStoryInfoUrl + `${id}` + '.json');
     }
 }
