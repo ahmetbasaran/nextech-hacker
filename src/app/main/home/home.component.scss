@@ -2,6 +2,8 @@
   display: inline-flex !important;
 }
 
+
+
 /* Spinner CSS */
 .lds-ring {
     display: inline-block;
@@ -16,10 +18,10 @@
     width: 51px;
     height: 51px;
     margin: 6px;
-    border: 6px solid #fcf;
+    border: 6px solid #00d1b2;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fcf transparent transparent transparent;
+    border-color: #00d1b2 transparent transparent transparent;
   }
   .lds-ring div:nth-child(1) {
     animation-delay: -0.45s;
@@ -39,8 +41,6 @@
     }
   }
   
-
-
   .card {
     background: #fff;
     border-radius: 2px;
@@ -49,6 +49,7 @@
     margin: 1rem;
     position: relative;
     width: 300px;
+    color: #00d1b2;
   }
   
   .card-shadow {
@@ -58,4 +59,20 @@
   
   .card-shadow:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  .searchBar {
+    float: left;
+    width: 100%;
+    padding: .75rem;
+  }
+
+  .ringPos {
+    position: absolute;
+    top: 0;
+    right: 0;
   }

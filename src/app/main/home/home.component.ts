@@ -13,7 +13,17 @@ export class HomeComponent implements OnInit {
   constructor(private hns: HackerNewsService) { }
   hackerPosts: Array<Object>;
   isComplete: boolean;
+  hackerTitles: any;
+  searchText: any;
 
+  characters = [
+    'Finn the human',
+    'Jake the dog',
+    'Princess bubblegum',
+    'Lumpy Space Princess',
+    'Beemo1',
+    'Beemo2'
+  ];
 
   ngOnInit() {
     this.hackerPosts = [];
@@ -32,7 +42,8 @@ export class HomeComponent implements OnInit {
       // sync map over the IDS and create observables that will eventually give us the story info
       const topStoryReqs = res.map(id => this.hns.getStoryInfo(id));
       // source becomes our array of returned observables
-      const source = Observable.concat(...topStoryReqs);
+      // concat calls in order, merge will make a quicker call - time dropped from 19s to 3s
+      const source = Observable.merge(...topStoryReqs);
       // subscribe to our observable, push to our initialized empty array
       source.subscribe(
         x => {

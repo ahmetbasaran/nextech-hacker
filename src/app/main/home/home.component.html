@@ -1,5 +1,6 @@
+<section class="body">
 <div *ngIf="!isComplete">
-  <div class="lds-ring">
+  <div class="lds-ring ringPos">
     <div></div>
     <div></div>
     <div></div>
@@ -7,16 +8,19 @@
   </div>
 </div>
 
+<div class="searchBar">
+  <input class="column is-12 input" [(ngModel)]="searchText" placeholder="Search by Title">
+</div>
 <div class="columns is-multiline">
-  <div class="column is-one-quarter-desktop" *ngFor="let hackerPost of hackerPosts">
-    <a href="{{hackerPost.url}}">
+  <div class="column" *ngFor="let hackerPost of hackerPosts | filter: searchText">
+    <a href="{{hackerPost.url}}" target='_blank'>
       <div class="card card-shadow">
         <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-12">{{hackerPost.title}}</p>
-              <p class="subtitle is-12">Author: {{hackerPost.by}}</p>
-              <p class="subtitle is-12">Score: {{hackerPost.score}}</p>
+              <p class="title">{{hackerPost.title}}</p>
+              <p class="author">Author: {{hackerPost.by}}</p>
+              <p class="score">Score: {{hackerPost.score}}</p>
             </div>
           </div>
           <div class="content">
@@ -27,3 +31,4 @@
     </a>
   </div>
 </div>
+</section>
