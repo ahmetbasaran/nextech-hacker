@@ -9,12 +9,12 @@ import { map, mergeMap, concatMap } from 'rxjs/operators';
 export class HackerNewsService {
     constructor(private http: HttpClient) { }
 
-    hnTopStoriesUrl = 'https://hacker-news.firebaseio.com/v0/beststories.json';
+    hnBestStoriesUrl = 'https://hacker-news.firebaseio.com/v0/beststories.json';
     hnStoryInfoUrl = 'https://hacker-news.firebaseio.com/v0/item/';
 
     // Left this as Observable<any> because we're really just returning an array of strings.
-    getTopStories(): Observable<any> {
-        return this.http.get(this.hnTopStoriesUrl);
+    getBestStories(): Observable<any> {
+        return this.http.get(this.hnBestStoriesUrl);
     }
 
     // Returns our list of story information based on the ID passed in. Of type HackerNews in our Models folder.
